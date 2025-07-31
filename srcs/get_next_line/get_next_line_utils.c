@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ibudko <ibudko@student.42.fr>              +#+  +:+       +#+        */
+/*   By: student <student@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 14:49:31 by ibudko            #+#    #+#             */
-/*   Updated: 2025/03/04 15:06:36 by ibudko           ###   ########.fr       */
+/*   Updated: 2025/07/31 18:51:35 by student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "includes/get_next_line.h"
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {

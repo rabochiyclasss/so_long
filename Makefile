@@ -1,27 +1,32 @@
 NAME = so_long
-SRC = main.c
-OBJ = $(SRC:.c=.o)
 
+SRC_DIR = srcs
+SRC = main.c map_parser.c game_init.c graphics.c player_move.c utils.c
+OBJ = $(addprefix $(SRC_DIR)/, $(SRC:.c=.o))
+
+GNL_DIR = $(SRC_DIR)/get_next_line
+GNL_SRC = get_next_line.c get_next_line_utils.c
+GNL_OBJ = $(addprefix $(GNL_DIR)/, $(GNL_SRC:.c=.o))
+
+MLX_DIR = libs/mlx
+
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
-
-MLX_PATH = ./minilib-linux
-MLX_FLAGS = -L$(MLX_PATH) -lmlx_Linux -lXext -lX11 -lm -lz
+INCLUDES = -Iincludes -I$(MLX_DIR)
+LIBS = -L$(MLX_DIR) -lmlx -lXext -lX11 -lm
 
 all: $(NAME)
 
-# This ensures MiniLibX is compiled first
-$(MLX_PATH)/libmlx_Linux.a:
-	make -C $(MLX_PATH)
-
-$(NAME): $(MLX_PATH)/libmlx_Linux.a $(OBJ)
-	gcc $(CFLAGS) $(OBJ) $(MLX_FLAGS) -o $(NAME)
+$(NAME): $(OBJ) $(GNL_OBJ)
+	make -C $(MLX_DIR)
+	$(CC) $(CFLAGS) $(OBJ) $(GNL_OBJ) $(LIBS) -o $@
 
 %.o: %.c
-	gcc $(CFLAGS) -I$(MLX_PATH) -c $< -o $@
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 clean:
-	rm -f $(OBJ)
-	make -C $(MLX_PATH) clean
+	make clean -C $(MLX_DIR)
+	rm -f $(OBJ) $(GNL_OBJ)
 
 fclean: clean
 	rm -f $(NAME)

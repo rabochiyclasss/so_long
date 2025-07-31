@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ibudko <ibudko@student.42.fr>              +#+  +:+       +#+        */
+/*   By: student <student@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 14:49:38 by ibudko            #+#    #+#             */
-/*   Updated: 2025/03/04 15:05:53 by ibudko           ###   ########.fr       */
+/*   Updated: 2025/07/31 18:51:25 by student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "includes/get_next_line.h"
 
 static char	*ft_substr(char const *s, unsigned int start, size_t len)
 {

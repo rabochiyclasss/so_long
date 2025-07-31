@@ -6,7 +6,7 @@
 /*   By: student <student@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 18:49:08 by student           #+#    #+#             */
-/*   Updated: 2025/07/31 18:49:09 by student          ###   ########.fr       */
+/*   Updated: 2025/07/31 19:37:23 by student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	move_player(t_game *game, int new_x, int new_y)
 	if (game->map[new_y][new_x] == '1')
 		return ;
 	game->moves++;
-	ft_printf("Moves: %d\n", game->moves);
+	printf("Moves: %d\n", game->moves);
 	if (game->map[new_y][new_x] == 'C')
 	{
 		game->collectibles--;
@@ -25,7 +25,7 @@ static void	move_player(t_game *game, int new_x, int new_y)
 	}
 	if (game->map[new_y][new_x] == 'E' && game->collectibles == 0)
 	{
-		ft_printf("You win! Total moves: %d\n", game->moves);
+		printf("You win! Total moves: %d\n", game->moves);
 		close_game(game);
 	}
 	game->map[game->player_y][game->player_x] = '0';

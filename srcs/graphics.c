@@ -6,7 +6,7 @@
 /*   By: student <student@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 18:46:54 by student           #+#    #+#             */
-/*   Updated: 2025/07/31 18:46:58 by student          ###   ########.fr       */
+/*   Updated: 2025/07/31 19:36:21 by student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	load_textures(t_game *game)
 			&size, &size);
 	if (!game->wall_img || !game->floor_img || !game->player_img
 		|| !game->collect_img || !game->exit_img)
-		error_exit("Failed to load textures");
+		ft_error("Failed to load textures");
 }
 
 void	render_map(t_game *game)

@@ -6,11 +6,11 @@
 /*   By: student <student@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 14:49:38 by ibudko            #+#    #+#             */
-/*   Updated: 2025/07/31 18:51:25 by student          ###   ########.fr       */
+/*   Updated: 2025/07/31 19:41:56 by student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/get_next_line.h"
+#include "../includes/get_next_line.h"
 
 static char	*ft_substr(char const *s, unsigned int start, size_t len)
 {

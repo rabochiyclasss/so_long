@@ -6,11 +6,11 @@
 /*   By: student <student@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 14:49:31 by ibudko            #+#    #+#             */
-/*   Updated: 2025/07/31 18:51:35 by student          ###   ########.fr       */
+/*   Updated: 2025/07/31 19:41:54 by student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/get_next_line.h"
+#include "../includes/get_next_line.h"
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {

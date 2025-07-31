@@ -6,12 +6,13 @@
 /*   By: student <student@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 18:46:14 by student           #+#    #+#             */
-/*   Updated: 2025/07/31 19:13:33 by student          ###   ########.fr       */
+/*   Updated: 2025/07/31 19:38:35 by student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
+// Реализация flood fill
 void flood_fill(char **map, t_game *game, int y, int x)
 {
     if (y < 0 || y >= game->map_height || x < 0 || x >= game->map_width
@@ -21,7 +22,7 @@ void flood_fill(char **map, t_game *game, int y, int x)
     if (map[y][x] == 'C')
         game->collectibles--;
     if (map[y][x] == 'E')
-        map[y][x] = '1'; // Помечаем выход как стену для завершения
+        map[y][x] = '1'; // Помечаем выход как стену
     
     map[y][x] = 'X';
     flood_fill(map, game, y - 1, x);
@@ -30,7 +31,7 @@ void flood_fill(char **map, t_game *game, int y, int x)
     flood_fill(map, game, y, x + 1);
 }
 
-
+// Проверка достижимости выхода
 int check_exit_reachable(char **map, t_game *game)
 {
     int y;
@@ -53,34 +54,31 @@ void free_map(char **map, int height)
 {
     int i;
     
-    if (map)
+    if (!map)
+        return;
+    
+    i = 0;
+    while (i < height)
     {
-        i = 0;
-        while (i < height)
-        {
-            if (map[i])
-                free(map[i]);
-            i++;
-        }
-        free(map);
+        if (map[i])
+            free(map[i]);
+        i++;
     }
+    free(map);
 }
 
-int	close_game(t_game *game)
+int close_game(t_game *game)
 {
-	int	i;
-
-	if (game->win)
-		mlx_destroy_window(game->mlx, game->win);
-	i = -1;
-	while (++i < game->map_height)
-		free(game->map[i]);
-	free(game->map);
-	exit(0);
+    if (game->win)
+        mlx_destroy_window(game->mlx, game->win);
+    if (game->map)
+        free_map(game->map, game->map_height);
+    exit(0);
+    return (0);
 }
 
-void error_exit(char *msg)
+void	ft_error(char *msg)
 {
-    ft_printf("Error\n%s\n", msg);
-    exit(1);
+	printf("Error\n%s\n", msg);
+	exit(1);
 }
